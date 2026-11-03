@@ -27,7 +27,10 @@ import reactor.test.StepVerifier;
  * Pruebas del cliente reactivo con {@code StepVerifier} (reactor-test): describe qué señales debe emitir el flujo
  * (valores, error o finalización). La aplicación arranca en un puerto libre y las llamadas son HTTP reales.
  */
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+// Límite de respuesta de 1500 ms en las pruebas (500 ms en la aplicación): da margen a la primera llamada en frío
+// en máquinas cargadas, como las de CI, y sigue siendo menor que los 2000 ms del endpoint lento.
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
+        properties = "app.products.response-timeout-ms=1500")
 @DisplayName("ProductWebClient con StepVerifier")
 class ProductWebClientTest {
 
@@ -105,7 +108,7 @@ class ProductWebClientTest {
     }
 
     @Test
-    @DisplayName("timeout: la respuesta tarda más que el límite de 500 ms")
+    @DisplayName("timeout: la respuesta tarda más que el límite de respuesta")
     void timeout() {
         StepVerifier.create(client.slow(2000))
                 .expectErrorSatisfies(e -> assertEquals(0, ((RemoteServiceException) e).getStatus()))
