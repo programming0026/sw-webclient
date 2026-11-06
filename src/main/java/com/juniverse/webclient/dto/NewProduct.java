@@ -1,4 +1,4 @@
-package com.juniverse.webclient.model;
+package com.juniverse.webclient.dto;
 
 import java.math.BigDecimal;
 

@@ -35,8 +35,9 @@ src/main/java/com/juniverse/webclient/
 ├── controller/
 │   ├── ProviderController.java        # el servicio "externo": productos, /slow, /flaky y /stream (SSE)
 │   └── ConsumerController.java        # API propia /consume/... (devuelve Mono/Flux)
+├── dto/                               # NewProduct, CatalogSummary
 ├── exception/                         # ProductNotFoundException, RemoteServiceException
-└── model/                             # Product, NewProduct, CatalogSummary
+└── model/                             # Product
 ```
 
 ## Requisitos

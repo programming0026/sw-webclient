@@ -1,4 +1,4 @@
-package com.juniverse.webclient.model;
+package com.juniverse.webclient.dto;
 
 /**
  * Resumen que se arma con DOS llamadas simultáneas ({@code Mono.zip}).

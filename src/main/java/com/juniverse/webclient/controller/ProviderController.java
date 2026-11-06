@@ -1,6 +1,6 @@
 package com.juniverse.webclient.controller;
 
-import com.juniverse.webclient.model.NewProduct;
+import com.juniverse.webclient.dto.NewProduct;
 import com.juniverse.webclient.model.Product;
 import java.math.BigDecimal;
 import java.time.Duration;

@@ -2,8 +2,8 @@ package com.juniverse.webclient.client;
 
 import com.juniverse.webclient.exception.ProductNotFoundException;
 import com.juniverse.webclient.exception.RemoteServiceException;
-import com.juniverse.webclient.model.CatalogSummary;
-import com.juniverse.webclient.model.NewProduct;
+import com.juniverse.webclient.dto.CatalogSummary;
+import com.juniverse.webclient.dto.NewProduct;
 import com.juniverse.webclient.model.Product;
 import io.netty.channel.ChannelOption;
 import java.time.Duration;
